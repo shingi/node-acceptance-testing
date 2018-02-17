@@ -8,7 +8,7 @@ const itemSchema = mongoose.Schema(
         complete: Boolean,
         completedAt: Date
     },
-    { collection: 'items' }
+    { collection: 'items', usePushEach: true }
 )
 
 const Item = mongoose.model('Item', itemSchema)
@@ -19,7 +19,7 @@ const listSchema = mongoose.Schema(
         userId: String,
         items: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Item' }],
     },
-    { collection: 'lists' }
+    { collection: 'lists', usePushEach: true }
 )
 
 const ToDoList = mongoose.model('ToDoList', listSchema)
